@@ -123,7 +123,7 @@ class Curl
 			$summar = $this->curlLoad($fd, $cash = 3600);
 			$pattern = '~<div class="resume-applicant">(?P<resume>.*)?</div>\s*</div>\s*</div>\s*</div></div>\s*</div>\s*</div>\s*</div>\s*</div>\s*</div>~isU';
 			preg_match($pattern, $summar, $matches);
-			$summaries[$link] = $matches['resume'];
+			$summaries[$fd] = $matches['resume'];
 		}
 		return $summaries;
 	}

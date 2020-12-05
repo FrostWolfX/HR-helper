@@ -57,19 +57,24 @@ class MainPoint
 	public function viewAllResume()
 	{
 		$text = $this->getStrSearch();
-		$strSearch = $this->workSearchText($text);
+//		$strSearch = $this->workSearchText($text);
 		//адрес поиска text=что ищем
 
-		$s=rawurlencode($text);//сайт в кодировке win-1251
+		$s = rawurlencode($text);//сайт в кодировке win-1251
 		$url = 'https://spb.hh.ru/search/resume?clusters=True&area=2&order_by=relevance&logic=normal&pos=position&exp_period=all_time&no_magic=False&ored_clusters=True&st=resumeSearch&text='
 			. $s;
 
 		$curl = new Curl($url);
 		$summaries = $curl->summaries();
 
+		/*
+		 * вызов поиска ключевых слов, возвращает массив
+		 * 'resume'
+		 * 'countKeys'
+		 * 'key'
+		 */
 		$searchKeyWorld = new SearchKeyWorld($summaries, $this->getKeyWords());
-		$sr = $searchKeyWorld->keywords();
-		return $sr;
+		return $searchKeyWorld->keywords();
 	}
 
 	/*
@@ -86,9 +91,32 @@ class MainPoint
 		$curl = new Curl($url);
 		$content = $curl->content();
 
-		$smallResume = $curl->smallViewResume($content);
+//		$smallResume = $curl->smallViewResume($content);
 		$link = $curl->linkResume($content);
 		$name = $curl->nameResume($content);
 		return array_combine($link, $name);
+	}
+
+	public function viewLink()
+	{
+		$text = $this->getStrSearch();
+
+		$s = rawurlencode($text);//сайт в кодировке win-1251
+		$url = 'https://spb.hh.ru/search/resume?clusters=True&area=2&order_by=relevance&logic=normal&pos=position&exp_period=all_time&no_magic=False&ored_clusters=True&st=resumeSearch&text='
+			. $s;
+		$curl = new Curl($url);
+		$link = $curl->linkResume();
+		return $link;
+	}
+	public function viewName()
+	{
+		$text = $this->getStrSearch();
+
+		$s = rawurlencode($text);//сайт в кодировке win-1251
+		$url = 'https://spb.hh.ru/search/resume?clusters=True&area=2&order_by=relevance&logic=normal&pos=position&exp_period=all_time&no_magic=False&ored_clusters=True&st=resumeSearch&text='
+			. $s;
+		$curl = new Curl($url);
+		$name = $curl->NameResume();
+		return $name;
 	}
 }
