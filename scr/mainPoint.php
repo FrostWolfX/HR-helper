@@ -13,17 +13,11 @@ class MainPoint
 		$this->keyWords = $keyWords;
 	}
 
-	/**
-	 * @return string
-	 */
 	public function getStrSearch(): string
 	{
 		return $this->strSearch;
 	}
 
-	/**
-	 * @return string
-	 */
 	public function getKeyWords(): array
 	{
 		//формируем массив ключей для поиска keywords
@@ -54,13 +48,11 @@ class MainPoint
 	/*
 	 * вернуть резюме с выделенными словами
 	 */
-	public function viewAllResume()
+	public function viewAllResume(): array
 	{
 		$text = $this->getStrSearch();
-//		$strSearch = $this->workSearchText($text);
-		//адрес поиска text=что ищем
-
-		$s = rawurlencode($text);//сайт в кодировке win-1251
+		$strSearch = $this->workSearchText($text);
+		$s = rawurlencode($strSearch);//сайт в кодировке win-1251
 		$url = 'https://spb.hh.ru/search/resume?clusters=True&area=2&order_by=relevance&logic=normal&pos=position&exp_period=all_time&no_magic=False&ored_clusters=True&st=resumeSearch&text='
 			. $s;
 
@@ -77,27 +69,7 @@ class MainPoint
 		return $searchKeyWorld->keywords();
 	}
 
-	/*
-	 * вернуть склеенные массивы ссылка=>название резюме
-	 */
-	public function viewNameResume()
-	{
-		$text = $this->getStrSearch();
-		$strSearch = $this->workSearchText($text);
-		//адрес поиска text=что ищем
-		$url = 'https://spb.hh.ru/search/resume?clusters=True&area=2&order_by=relevance&logic=normal&pos=position&exp_period=all_time&no_magic=False&ored_clusters=True&st=resumeSearch&text='
-			. $strSearch;
-
-		$curl = new Curl($url);
-		$content = $curl->content();
-
-//		$smallResume = $curl->smallViewResume($content);
-		$link = $curl->linkResume($content);
-		$name = $curl->nameResume($content);
-		return array_combine($link, $name);
-	}
-
-	public function viewLink()
+	public function viewName(): array
 	{
 		$text = $this->getStrSearch();
 
@@ -105,18 +77,6 @@ class MainPoint
 		$url = 'https://spb.hh.ru/search/resume?clusters=True&area=2&order_by=relevance&logic=normal&pos=position&exp_period=all_time&no_magic=False&ored_clusters=True&st=resumeSearch&text='
 			. $s;
 		$curl = new Curl($url);
-		$link = $curl->linkResume();
-		return $link;
-	}
-	public function viewName()
-	{
-		$text = $this->getStrSearch();
-
-		$s = rawurlencode($text);//сайт в кодировке win-1251
-		$url = 'https://spb.hh.ru/search/resume?clusters=True&area=2&order_by=relevance&logic=normal&pos=position&exp_period=all_time&no_magic=False&ored_clusters=True&st=resumeSearch&text='
-			. $s;
-		$curl = new Curl($url);
-		$name = $curl->NameResume();
-		return $name;
+		return $curl->NameResume();
 	}
 }

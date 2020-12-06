@@ -75,8 +75,7 @@ class Curl
 	 */
 	public function content(): string
 	{
-		$content = $this->curlLoad($this->getUrl(), $cash = 3600);
-		return $content;
+		return $this->curlLoad($this->getUrl(), $cash = 3600);
 	}
 
 	/*
@@ -92,9 +91,9 @@ class Curl
 	/*
 	 * linkResume возвращает массив ссылок на резюме
 	 */
-	public function linkResume(): array
+	public function link(): array
 	{
-		$matches = $this->smallViewResume($this->content());
+		$matches = $this->smallViewResume();
 		preg_match_all('~href="(.*)">.*</a>~isU', $matches[0], $links);
 		/*
 		 * дописываю в сылки домен сайта hh.ru
@@ -110,20 +109,21 @@ class Curl
 	 */
 	public function nameResume(): array
 	{
-		$matches = $this->smallViewResume($this->content());
+		$matches = $this->smallViewResume();
 		preg_match_all('~href=".*">(.*)</a>~isU', $matches[0], $links);
 		return $links[1];
 	}
 
 	public function summaries(): array
 	{
-		$links = $this->linkResume();
-		foreach ($links as $link => $fd) {
+		$links = $this->link();
+		$summaries = [];
+		foreach ($links as $link => $f) {
 			//парсинг резюме по ссылкам
-			$summar = $this->curlLoad($fd, $cash = 3600);
+			$summar = $this->curlLoad($f, $cash = 3600);
 			$pattern = '~<div class="resume-applicant">(?P<resume>.*)?</div>\s*</div>\s*</div>\s*</div></div>\s*</div>\s*</div>\s*</div>\s*</div>\s*</div>~isU';
 			preg_match($pattern, $summar, $matches);
-			$summaries[$fd] = $matches['resume'];
+			$summaries[$f] = $matches['resume'];
 		}
 		return $summaries;
 	}

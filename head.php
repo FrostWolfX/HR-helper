@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="/scr/styles/style.css" type="text/css">
     <link rel="stylesheet" href="/scr/styles/media.css" type="text/css">
     <link rel="stylesheet" href="/scr/styles/standard_tags.css" type="text/css">
+    
+    <link rel="icon" href="scr/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <title>best job</title>
 </head>
 <body>

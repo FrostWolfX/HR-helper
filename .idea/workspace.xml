@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d4ecccc-4be6-4aea-8f8f-0d944aed52bf" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/head.php" beforeDir="false" afterPath="$PROJECT_DIR$/head.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/listVacation.php" beforeDir="false" afterPath="$PROJECT_DIR$/listVacation.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scr/classes/curl.php" beforeDir="false" afterPath="$PROJECT_DIR$/scr/classes/curl.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scr/classes/searchKeyWords.php" beforeDir="false" afterPath="$PROJECT_DIR$/scr/classes/searchKeyWords.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scr/mainPoint.php" beforeDir="false" afterPath="$PROJECT_DIR$/scr/mainPoint.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scr/styles/standard_tags.css" beforeDir="false" afterPath="$PROJECT_DIR$/scr/styles/standard_tags.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scr/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/scr/styles/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,12 +61,23 @@
       <option name="presentableId" value="Default" />
       <updated>1607082313724</updated>
       <workItem from="1607082316047" duration="1765000" />
-      <workItem from="1607084915559" duration="19632000" />
+      <workItem from="1607084915559" duration="32097000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

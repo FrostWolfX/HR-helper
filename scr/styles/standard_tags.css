@@ -66,3 +66,10 @@ button:hover {
     background-color: #3F59B0;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
 }
+
+article {
+    background: #ccc9c94a;
+    border-radius: 0.5em;
+    padding: 1em;
+    margin-bottom: 1em;
+}

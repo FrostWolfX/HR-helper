@@ -7,9 +7,8 @@ $keyWords = $_POST['keyWords'];
 if (!empty($_POST['text'])) {
 	$mainPoint = new MainPoint($text, $keyWords);
 	$resumes = $mainPoint->viewAllResume();
-//	$links = $mainPoint->viewLink();
 	$name = $mainPoint->viewName();
-	$i = 0;
+
 	/*
 	 * добавляю в массив резюме название резюме
 	 */
@@ -39,9 +38,6 @@ if (!empty($_POST['text'])) {
 			. $r
 			. '</article>';
 	}
-	/*foreach ($resumes as $resume) {
-		echo '<article>' . $resume . '</article>';
-	}*/
 } else {
 	header('Location: http://pixsam.mcdir.ru/');
 	exit;
