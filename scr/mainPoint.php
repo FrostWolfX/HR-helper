@@ -51,10 +51,11 @@ class MainPoint
 	public function viewAllResume(): array
 	{
 		$text = $this->getStrSearch();
-		$strSearch = $this->workSearchText($text);
-		$s = rawurlencode($strSearch);//сайт в кодировке win-1251
+
+		$s = rawurlencode($text);//сайт в кодировке win-1251
+		$strSearch = $this->workSearchText($s);
 		$url = 'https://spb.hh.ru/search/resume?clusters=True&area=2&order_by=relevance&logic=normal&pos=position&exp_period=all_time&no_magic=False&ored_clusters=True&st=resumeSearch&text='
-			. $s;
+			. $strSearch;
 
 		$curl = new Curl($url);
 		$summaries = $curl->summaries();
